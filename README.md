@@ -1,438 +1,316 @@
-# 🎬 MOVIELIST
+# 🐀 DevRats
 
-<div align="center">
+> Transform your coding journey into a shared experience. Stay consistent, stay motivated, stay coding.
 
-![MovieList](https://img.shields.io/badge/MOVIELIST-Your_Personal_Cinema-e50914?style=for-the-badge&logo=film&logoColor=white)
-
-**A sleek, modern movie tracking app with multi-user authentication**
-
-[![Next.js](https://img.shields.io/badge/Next.js-13+-black?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Database-47A248?style=flat-square&logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![NextAuth](https://img.shields.io/badge/NextAuth.js-Authentication-purple?style=flat-square&logo=auth0&logoColor=white)](https://next-auth.js.org/)
-[![React](https://img.shields.io/badge/React-18+-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org/)
-
-[Live Demo](https://movie-watchlist-app-cu4r.vercel.app/)
-
----
-
-</div>
+[![Next.js](https://img.shields.io/badge/Next.js-15.5.6-black?style=flat&logo=next.js)](https://nextjs.org/)
+[![MongoDB](https://img.shields.io/badge/MongoDB-Database-green?style=flat&logo=mongodb)](https://www.mongodb.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind-CSS-38B2AC?style=flat&logo=tailwind-css)](https://tailwindcss.com/)
+[![NextAuth.js](https://img.shields.io/badge/NextAuth.js-Authentication-purple?style=flat)](https://next-auth.js.org/)
 
 ## 📖 About
 
-**MovieList** is a beautiful, Netflix-inspired movie tracking application that lets you organize your personal cinema collection. Track what you've watched, create your watchlist, rate movies, and discover your top-rated films - all with a stunning dark UI that feels like home.
+**DevRats** is a gamified social platform that transforms learning and practicing programming into a collaborative and motivating experience. Built for developers who want to maintain consistency in their studies and projects through shared accountability in groups.
 
-Perfect for movie enthusiasts who want a clean, personal space to curate their film journey.
+### Core Concept
 
-## ✨ Features
+Users make **daily check-ins** by sharing photos of the code they're working on, building a **streak** of active days that encourages constant practice and reinforces commitment. Think Duolingo, but for coding consistency.
 
-<table>
-<tr>
-<td width="50%">
+### Key Features
 
-### 🎭 Core Features
-- ✅ **Personal Movie Library** - Add, edit, and delete movies with ease
-- 📊 **Watch Status Tracking** - Mark movies as watched or add them to your watchlist
-- ⭐ **Star Rating System** - Rate your movies from 1-10 stars
-- 🔍 **Smart Filtering** - View all movies, watched only, unwatched, or top-rated
-- 🔐 **User Authentication** - Secure login/register system with encrypted passwords
-- 🌍 **Multi-language Support** - Full support for English and Portuguese 🇬🇧🇵🇹
+- 📸 **Daily Check-ins**: Share code screenshots with title, description, and technology stack
+- 🔥 **Streak System**: Build and maintain consecutive active days
+- 👥 **Thematic Groups**: Create or join groups focused on specific technologies or goals
+- 🏆 **Rankings**: Weekly, monthly, yearly, and all-time leaderboards based on active days
+- 💬 **Integrated Chat**: Discuss technical topics and provide mutual support
+- 📅 **Activity Calendar**: Visual record of your learning journey with photos
+- ⚡ **Real-time Feed**: See what your group members are working on
 
-</td>
-<td width="50%">
+## 🎯 Perfect For
 
-### 🎨 UI/UX Highlights
-- 🎬 **Netflix-inspired Design** - Sleek dark theme with smooth animations
-- 📱 **Fully Responsive** - Perfect on desktop, tablet, and mobile
-- 🧭 **Intuitive Navigation** - Tab-based interface for quick access
-- ➕ **Floating Action Button** - Quick movie addition from anywhere
-- ⚡ **Real-time Updates** - Instant feedback on all actions
-- ⚙️ **Settings Panel** - Customize language and manage account
+- Students maintaining consistent study routines
+- Developers in career transitions
+- Remote teams practicing asynchronous collaboration
+- Study groups focused on specific technologies
+- Bootcamps encouraging daily practice
+- Anyone participating in challenges like #100DaysOfCode
 
-</td>
-</tr>
-</table>
+## 🛠️ Tech Stack
 
-## 🚀 Quick Start
+| Category | Technology |
+|----------|------------|
+| **Framework** | Next.js 15.5.6 (App Router) |
+| **Database** | MongoDB + Mongoose |
+| **Authentication** | NextAuth.js |
+| **Styling** | Tailwind CSS |
+| **Deployment** | Vercel |
+
+## 📂 Project Structure
+
+```
+DevRats/
+├── public/
+│   ├── icons/              # Application icons
+│   └── images/             # Static images
+│
+├── src/
+│   ├── app/
+│   │   ├── (auth)/         # Authentication routes
+│   │   │   ├── login/
+│   │   │   └── register/
+│   │   │
+│   │   ├── (dashboard)/    # Protected dashboard routes
+│   │   │   ├── home/
+│   │   │   ├── profile/
+│   │   │   ├── settings/
+│   │   │   └── group/
+│   │   │       ├── create/
+│   │   │       ├── join/
+│   │   │       └── [id]/
+│   │   │           ├── details/
+│   │   │           ├── ranking/
+│   │   │           └── chat/
+│   │   │
+│   │   └── api/            # API routes
+│   │       ├── auth/
+│   │       ├── users/
+│   │       ├── groups/
+│   │       ├── posts/
+│   │       └── chat/
+│   │
+│   ├── components/         # React components
+│   │   ├── auth/
+│   │   ├── layout/
+│   │   ├── posts/
+│   │   ├── groups/
+│   │   ├── profile/
+│   │   ├── ranking/
+│   │   └── chat/
+│   │
+│   ├── models/             # MongoDB schemas
+│   │   ├── User.js
+│   │   ├── Group.js
+│   │   ├── Post.js
+│   │   ├── Comment.js
+│   │   ├── Reaction.js
+│   │   └── Message.js
+│   │
+│   └── lib/                # Utilities
+│       ├── mongodb.js
+│       ├── auth.js
+│       └── utils.js
+│
+├── .env.local              # Environment variables
+├── next.config.js
+├── tailwind.config.js
+└── package.json
+```
+
+## 🗄️ Database Schema
+
+### Users Collection
+```javascript
+{
+  _id: ObjectId,
+  name: String,
+  email: String,                    // Unique, indexed
+  password: String,                 // Bcrypt hash
+  avatar: String,                   // URL or /public path
+  streak: Number,                   // Consecutive active days (default: 0)
+  lastPostDate: String,             // YYYY-MM-DD format
+  activeGroup: ObjectId,            // Currently selected group (ref: Groups)
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
+### Groups Collection
+```javascript
+{
+  _id: ObjectId,
+  name: String,
+  description: String,
+  picture: String,                  // URL
+  inviteCode: String,               // Unique invite code
+  creator: ObjectId,                // ref: Users
+  members: [
+    {
+      user: ObjectId,               // ref: Users
+      role: String,                 // "admin" or "member"
+      joinedAt: Date
+    }
+  ],
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
+### Posts Collection
+```javascript
+{
+  _id: ObjectId,
+  title: String,
+  description: String,
+  imageUrl: String,                 // Code screenshot URL
+  technology: String,               // e.g., "React", "Python", "Node.js"
+  startTime: Date,
+  user: ObjectId,                   // ref: Users
+  group: ObjectId,                  // ref: Groups
+  createdAt: Date,
+  updatedAt: Date
+}
+```
+
+### Comments Collection
+```javascript
+{
+  _id: ObjectId,
+  content: String,
+  user: ObjectId,                   // ref: Users
+  post: ObjectId,                   // ref: Posts
+  createdAt: Date
+}
+```
+
+### Reactions Collection
+```javascript
+{
+  _id: ObjectId,
+  type: String,                     // "like", "fire", "clap", "rocket"
+  user: ObjectId,                   // ref: Users
+  post: ObjectId,                   // ref: Posts
+  createdAt: Date
+}
+```
+
+### Messages Collection
+```javascript
+{
+  _id: ObjectId,
+  content: String,
+  user: ObjectId,                   // ref: Users
+  group: ObjectId,                  // ref: Groups
+  createdAt: Date
+}
+```
+
+## 🚀 Getting Started
 
 ### Prerequisites
 
-```bash
-Node.js 16+
-MongoDB (local or Atlas)
-npm or yarn
-```
+- Node.js 18+ 
+- MongoDB database
+- npm or yarn
 
 ### Installation
 
-**1. Clone the repository**
+1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/movielist.git
-cd movielist
+git clone https://github.com/yourusername/devrats.git
+cd devrats
 ```
 
-**2. Install dependencies**
+2. **Install dependencies**
 ```bash
 npm install
+# or
+yarn install
 ```
 
-**3. Set up environment variables**
+3. **Set up environment variables**
 
 Create a `.env.local` file in the root directory:
 
 ```env
-# MongoDB Connection
-MONGODB_URI=mongodb://localhost:27017/movielist
-# or MongoDB Atlas:
-# MONGODB_URI=mongodb+srv://username:password@cluster.mongodb.net/movielist
+# MongoDB
+MONGODB_URI=your_mongodb_connection_string
 
-# NextAuth Configuration
+# NextAuth
 NEXTAUTH_URL=http://localhost:3000
-NEXTAUTH_SECRET=your-super-secret-key-here-generate-with-openssl
+NEXTAUTH_SECRET=your_nextauth_secret
+
+# Optional: File Upload (if using external service)
+# CLOUDINARY_URL=your_cloudinary_url
+# or configure for your preferred upload service
 ```
 
-> 💡 **Generate a secure NEXTAUTH_SECRET:**
-> ```bash
-> openssl rand -base64 32
-> ```
-
-**4. Run the development server**
+4. **Run the development server**
 ```bash
 npm run dev
+# or
+yarn dev
 ```
 
-**5. Open your browser**
-```
-http://localhost:3000
-```
+5. **Open your browser**
 
-### Production Build
+Navigate to [http://localhost:3000](http://localhost:3000)
 
-```bash
-npm run build
-npm start
-```
+## 📱 Application Pages
 
-## 🛠️ Tech Stack
+| Page | Route | Description |
+|------|-------|-------------|
+| Login | `/login` | User authentication |
+| Register | `/register` | Account creation |
+| Dashboard | `/home` | Feed with group posts |
+| Profile | `/profile` | User profile with activity calendar |
+| Settings | `/settings` | Edit profile and account settings |
+| Create Group | `/group/create` | Create a new group |
+| Join Group | `/group/join` | Enter group with invite code |
+| Group Details | `/group/[id]/details` | Group information and members |
+| Rankings | `/group/[id]/ranking` | Leaderboards by period |
+| Chat | `/group/[id]/chat` | Group conversation |
 
-<table>
-<tr>
-<td align="center" width="33%">
+## 🔌 API Endpoints
 
-### Frontend
-![Next.js](https://img.shields.io/badge/Next.js-black?style=for-the-badge&logo=next.js&logoColor=white)
-![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
+### Authentication
+- `POST /api/auth/login` - User login
+- `POST /api/auth/register` - User registration
+- `POST /api/auth/logout` - User logout
 
-</td>
-<td align="center" width="33%">
+### Users
+- `GET /api/users/me` - Get current user data
+- `PUT /api/users/me` - Update user profile
+- `DELETE /api/users/me` - Delete account
+- `POST /api/users/me/avatar` - Upload avatar
+- `GET /api/users/me/groups` - Get user's groups
+- `GET /api/users/me/activity?month=YYYY-MM` - Get activity calendar
+- `GET /api/users/me/posts` - Get user's posts
+- `GET /api/users/me/stats` - Get user statistics
 
-### Backend
-![Node.js](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)
-![Mongoose](https://img.shields.io/badge/Mongoose-880000?style=for-the-badge&logo=mongoose&logoColor=white)
+### Groups
+- `POST /api/groups` - Create new group
+- `POST /api/groups/join` - Join group with invite code
+- `GET /api/groups/:id` - Get group details
+- `GET /api/groups/:id/members` - Get group members
+- `POST /api/groups/:id/invite` - Generate invite code
+- `DELETE /api/groups/:id/leave` - Leave group
+- `GET /api/groups/:id/rankings?period=week|month|year|all-time` - Get rankings
 
-</td>
-<td align="center" width="33%">
+### Posts
+- `POST /api/posts` - Create new post (check-in)
+- `GET /api/posts/:id` - Get single post
+- `GET /api/posts/groups/:groupId/feed` - Get group feed
+- `POST /api/posts/:id/comments` - Add comment
+- `POST /api/posts/:id/reactions` - Add reaction
 
-### Security
-![NextAuth](https://img.shields.io/badge/NextAuth-000000?style=for-the-badge&logo=auth0&logoColor=white)
-![JWT](https://img.shields.io/badge/JWT-black?style=for-the-badge&logo=JSON%20web%20tokens)
-![bcrypt](https://img.shields.io/badge/bcrypt-338033?style=for-the-badge)
-
-</td>
-</tr>
-</table>
-
-## 📁 Project Structure
-
-```
-movielist/
-├── 📂 lib/
-│   └── mongodb.js              # MongoDB connection with caching
-├── 📂 models/
-│   ├── Movie.js                # Movie schema
-│   └── User.js                 # User schema
-├── 📂 src/
-│   ├── 📂 components/
-│   │   ├── AddMovie.jsx        # Add movie form
-│   │   ├── AllMovies.jsx       # All movies grid
-│   │   ├── EditMovie.jsx       # Edit movie form
-│   │   ├── WatchedMovies.jsx   # Watched movies view
-│   │   ├── NotWatchedMovies.jsx # Watchlist view
-│   │   ├── MoviesByRating.jsx  # Top rated ranking
-│   │   └── StarRating.jsx      # Rating component
-│   ├── 📂 pages/
-│   │   ├── 📂 api/
-│   │   │   ├── 📂 auth/
-│   │   │   │   ├── [...nextauth].js  # NextAuth config
-│   │   │   │   ├── register.js       # User registration
-│   │   │   │   └── delete-account.js # Account deletion
-│   │   │   └── 📂 movies/
-│   │   │       ├── index.js          # GET/POST movies
-│   │   │       └── [id].js           # PUT/DELETE movie
-│   │   ├── index.jsx           # Main dashboard
-│   │   ├── login.jsx           # Login page
-│   │   └── register.jsx        # Registration page
-│   ├── 📂 services/
-│   │   └── api.js              # API client functions
-│   └── 📂 utils/
-│       └── translations.js     # i18n translations
-└── 📄 package.json
-```
-
-## 🔌 API Routes
-
-### 🔐 Authentication
-
-<table>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-<th>Auth Required</th>
-</tr>
-<tr>
-<td><code>/api/auth/register</code></td>
-<td><code>POST</code></td>
-<td>Register a new user</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><code>/api/auth/signin</code></td>
-<td><code>POST</code></td>
-<td>Login user (NextAuth)</td>
-<td>❌</td>
-</tr>
-<tr>
-<td><code>/api/auth/delete-account</code></td>
-<td><code>DELETE</code></td>
-<td>Delete user & all movies</td>
-<td>✅</td>
-</tr>
-</table>
-
-#### Register User Example
-```json
-POST /api/auth/register
-
-{
-  "name": "John Doe",
-  "email": "john@example.com",
-  "password": "securepass123"
-}
-```
-
-### 🎬 Movies
-
-<table>
-<tr>
-<th>Endpoint</th>
-<th>Method</th>
-<th>Description</th>
-<th>Auth Required</th>
-</tr>
-<tr>
-<td><code>/api/movies</code></td>
-<td><code>GET</code></td>
-<td>Get all user's movies</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>/api/movies</code></td>
-<td><code>POST</code></td>
-<td>Create new movie</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>/api/movies/[id]</code></td>
-<td><code>PUT</code></td>
-<td>Update movie</td>
-<td>✅</td>
-</tr>
-<tr>
-<td><code>/api/movies/[id]</code></td>
-<td><code>DELETE</code></td>
-<td>Delete movie</td>
-<td>✅</td>
-</tr>
-</table>
-
-#### Create Movie Example
-```json
-POST /api/movies
-
-{
-  "title": "Inception",
-  "year": 2010,
-  "genre": "Sci-Fi",
-  "watched": true,
-  "rating": 9
-}
-```
-
-## 🌍 Internationalization
-
-MovieList supports **2 languages**:
-
-| Language | Code | Status |
-|----------|------|--------|
-| 🇬🇧 English | `en` | ✅ Default |
-| 🇵🇹 Portuguese | `pt` | ✅ Complete |
-
-### Adding More Languages
-
-Edit `src/utils/translations.js`:
-
-```javascript
-export const translations = {
-  en: { /* English translations */ },
-  pt: { /* Portuguese translations */ },
-  es: { /* Add Spanish */ },
-  fr: { /* Add French */ }
-};
-```
-
-## 🎨 Customization
-
-### Color Theme
-
-The app uses Netflix-inspired colors. Main brand color: `#e50914`
-
-**To change colors**, edit the CSS in component files:
-
-```css
-/* Primary gradient */
-background: linear-gradient(135deg, #e50914 0%, #c20812 100%);
-
-/* Accent color */
-color: #e50914;
-border-color: #e50914;
-```
-
-### Database Schema
-
-**Movie Model:**
-```javascript
-{
-  title: String (required),
-  year: Number (required),
-  genre: String (required),
-  watched: Boolean (default: false),
-  rating: Number (1-10, optional),
-  userId: ObjectId (required),
-  createdAt: Date (auto)
-}
-```
-
-**User Model:**
-```javascript
-{
-  name: String (required),
-  email: String (required, unique),
-  password: String (hashed, required),
-  createdAt: Date (auto)
-}
-```
-
-## 🔧 Environment Variables
-
-| Variable | Required | Description | Example |
-|----------|----------|-------------|---------|
-| `MONGODB_URI` | ✅ | MongoDB connection string | `mongodb://localhost:27017/movielist` |
-| `NEXTAUTH_URL` | ✅ | Application URL | `http://localhost:3000` |
-| `NEXTAUTH_SECRET` | ✅ | Secret for JWT signing | Generate with `openssl rand -base64 32` |
-
-## 🔒 Security Features
-
-- 🔐 **Password Hashing** - bcrypt with salt rounds
-- 🎫 **JWT Sessions** - Secure token-based authentication
-- 👤 **User Isolation** - Each user only sees their own data
-- 🛡️ **Protected Routes** - All API endpoints require authentication
-- 🚫 **SQL Injection Prevention** - MongoDB NoSQL with Mongoose sanitization
-
-## 🤝 Contributing
-
-Contributions are **welcome**! Here's how:
-
-1. 🍴 Fork the repository
-2. 🌿 Create your feature branch
-   ```bash
-   git checkout -b feature/AmazingFeature
-   ```
-3. 💾 Commit your changes
-   ```bash
-   git commit -m 'Add some AmazingFeature'
-   ```
-4. 📤 Push to the branch
-   ```bash
-   git push origin feature/AmazingFeature
-   ```
-5. 🔀 Open a Pull Request
-
-### Contribution Ideas
-
-- 🎨 New themes (light mode, custom colors)
-- 🌐 Additional language translations
-- 📊 Statistics dashboard
-- 🔍 Movie search with external API (TMDB, OMDb)
-- 🖼️ Movie poster uploads
-- 📱 Mobile app version
-- 🎯 Movie recommendations algorithm
-
-## 📋 Roadmap
-
-- [ ] Movie poster integration (TMDB API)
-- [ ] Advanced search and filters
-- [ ] Export/Import movie lists
-- [ ] Social features (share lists)
-- [ ] Statistics dashboard
-- [ ] Mobile app (React Native)
-- [ ] Dark/Light theme toggle
-- [ ] Movie trailer embeds
-
-## 🐛 Known Issues
-
-None at the moment! 🎉
-
-Found a bug? [Open an issue](https://github.com/yourusername/movielist/issues)
+### Chat
+- `GET /api/chat/groups/:groupId/messages?since=timestamp` - Get messages
+- `POST /api/chat/groups/:groupId/messages` - Send message
+- `DELETE /api/chat/messages/:id` - Delete message
 
 ## 📝 License
 
-This project is open source and available under the **MIT License**.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-```
-MIT License
+## 🤝 Contributing
 
-Copyright (c) 2024 MovieList
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/yourusername/devrats/issues).
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software...
-```
+## ⭐ Show your support
 
-## 🙏 Acknowledgments
-
-- 🎬 Design inspired by **Netflix**
-- 🔐 Authentication powered by **NextAuth.js**
-- 🗄️ Database by **MongoDB**
-- ⚛️ Built with **React** and **Next.js**
-- 💚 Built with love for movie enthusiasts
-
-## 📧 Contact
-
-**Questions? Issues? Suggestions?**
-
-- **GitHub Issues** - [Report bugs or request features](https://github.com/iorsini/movie_watchlist_app/issues)
-- **LinkedIn** - [@isadora-barradas](https://www.linkedin.com/in/isadora-barradas/)
+Give a ⭐️ if this project helped you stay consistent in your coding journey!
 
 ---
 
 <div align="center">
-
-### ⭐ Star this repo if you like it! ⭐
-
-**Made with ❤️ and 🎬 by movie lovers, for movie lovers**
-
+  <strong>Built with ❤️ by developers, for developers</strong>
 </div>
