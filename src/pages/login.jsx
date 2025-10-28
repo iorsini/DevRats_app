@@ -1,45 +1,47 @@
 // /src/pages/login.jsx
-{/*Esse bloco de código é a página de login da aplicação Next.js com autenticação via next-auth.
-*/}
-import { useState, useEffect } from 'react';
-import { signIn } from 'next-auth/react';
-import { useRouter } from 'next/router';
-import Link from 'next/link';
+{
+  /*Esse bloco de código é a página de login da aplicação Next.js com autenticação via next-auth.
+   */
+}
+import { useState, useEffect } from "react";
+import { signIn } from "next-auth/react";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 const translations = {
   en: {
-    title: 'Welcome Back',
-    email: 'Email',
-    password: 'Password',
-    signIn: 'Sign In',
-    signingIn: 'Signing in...',
+    title: "Welcome Back",
+    email: "Email",
+    password: "Password",
+    signIn: "Sign In",
+    signingIn: "Signing in...",
     noAccount: "Don't have an account?",
-    signUp: 'Sign up',
-    emailPlaceholder: 'your@email.com',
-    passwordPlaceholder: '••••••••',
+    signUp: "Sign up",
+    emailPlaceholder: "your@email.com",
+    passwordPlaceholder: "••••••••",
   },
   pt: {
-    title: 'Bem-vindo',
-    email: 'Email',
-    password: 'Palavra-passe',
-    signIn: 'Entrar',
-    signingIn: 'A entrar...',
-    noAccount: 'Não tens conta?',
-    signUp: 'Criar conta',
-    emailPlaceholder: 'teu@email.com',
-    passwordPlaceholder: '••••••••',
-  }
+    title: "Bem-vindo",
+    email: "Email",
+    password: "Palavra-passe",
+    signIn: "Entrar",
+    signingIn: "A entrar...",
+    noAccount: "Não tens conta?",
+    signUp: "Criar conta",
+    emailPlaceholder: "teu@email.com",
+    passwordPlaceholder: "••••••••",
+  },
 };
 
 export default function Login() {
   const router = useRouter();
-  const [formData, setFormData] = useState({ email: '', password: '' });
-  const [error, setError] = useState('');
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
-  const [language, setLanguage] = useState('en');
+  const [language, setLanguage] = useState("en");
 
   useEffect(() => {
-    const savedLang = localStorage.getItem('movielist-language') || 'en';
+    const savedLang = localStorage.getItem("movielist-language") || "en";
     setLanguage(savedLang);
   }, []);
 
@@ -47,16 +49,16 @@ export default function Login() {
 
   const handleLanguageChange = (lang) => {
     setLanguage(lang);
-    localStorage.setItem('movielist-language', lang);
+    localStorage.setItem("movielist-language", lang);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setError('');
+    setError("");
     setLoading(true);
 
     try {
-      const result = await signIn('credentials', {
+      const result = await signIn("credentials", {
         redirect: false,
         email: formData.email,
         password: formData.password,
@@ -65,10 +67,10 @@ export default function Login() {
       if (result.error) {
         setError(result.error);
       } else {
-        router.push('/');
+        router.push("/");
       }
     } catch (err) {
-      setError('Something went wrong');
+      setError("Something went wrong");
     } finally {
       setLoading(false);
     }
@@ -101,7 +103,7 @@ export default function Login() {
         .auth-card {
           width: 100%;
           max-width: 450px;
-          background: rgba(255, 255, 255, 0.05);
+          background: #0b111c;
           padding: 48px 40px;
           border-radius: 16px;
           border: 1px solid rgba(255, 255, 255, 0.1);
@@ -246,21 +248,26 @@ export default function Login() {
         <div className="auth-card">
           <div className="language-selector">
             <button
-              className={`lang-btn ${language === 'en' ? 'active' : ''}`}
-              onClick={() => handleLanguageChange('en')}
+              className={`lang-btn ${language === "en" ? "active" : ""}`}
+              onClick={() => handleLanguageChange("en")}
             >
               EN
             </button>
             <button
-              className={`lang-btn ${language === 'pt' ? 'active' : ''}`}
-              onClick={() => handleLanguageChange('pt')}
+              className={`lang-btn ${language === "pt" ? "active" : ""}`}
+              onClick={() => handleLanguageChange("pt")}
             >
               PT
             </button>
           </div>
 
-          <div className="auth-logo">🎬 MOVIELIST</div>
-          <h1 className="auth-title">{t.title}</h1>
+          <div className="flex justify-center mb-6">
+            <img
+              src="/logo_devrats.png"
+              alt="DevRats Icon"
+              className="w-32 h-32 rounded-full object-cover shadow-lg"
+            />
+          </div>
 
           {error && <div className="error-message">{error}</div>}
 
@@ -271,7 +278,9 @@ export default function Login() {
                 type="email"
                 placeholder={t.emailPlaceholder}
                 value={formData.email}
-                onChange={(e) => setFormData({...formData, email: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, email: e.target.value })
+                }
                 required
               />
             </div>
@@ -282,7 +291,9 @@ export default function Login() {
                 type="password"
                 placeholder={t.passwordPlaceholder}
                 value={formData.password}
-                onChange={(e) => setFormData({...formData, password: e.target.value})}
+                onChange={(e) =>
+                  setFormData({ ...formData, password: e.target.value })
+                }
                 required
               />
             </div>
